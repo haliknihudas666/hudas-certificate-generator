@@ -1,6 +1,6 @@
 # **Hudas Certificate Generator**
 
-![Sample Generated Certificate](https://raw.githubusercontent.com/haliknihudas666/hudas-certificate-generator/master/screenshots/sample-cert.png)
+![Sample Generated Certificate](https://raw.githubusercontent.com/haliknihudas666/hudas-certificate-generator/master/src/template/sample.png)
 
 ## Setting Up
 
