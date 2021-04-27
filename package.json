@@ -1,0 +1,26 @@
+{
+  "name": "hudas-certificate-generator",
+  "version": "1.0.0",
+  "description": "Generate certificate locally or automatically send the generated certificate via email with custom message",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "author": "Fernando Nicolei Esperida",
+  "homepage": "https://github.com/haliknihudas666/hudas-certificate-generator#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haliknihudas666/hudas-certificate-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/haliknihudas666/hudas-certificate-generator/issues"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "canvas": "^2.7.0",
+    "csv-parser": "^3.0.0",
+    "dotenv": "^8.2.0",
+    "inquirer": "^8.0.0",
+    "nodemailer": "^6.5.0"
+  }
+}
