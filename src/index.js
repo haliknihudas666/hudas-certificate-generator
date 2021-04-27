@@ -87,24 +87,29 @@ async function sendEmail() {
 
     //Send to receivers from csv file
     for (var index in extractedCSV) {
-        await transporter.sendMail({
-            //TODO Change this to sender name
-            from: `"Nicolei Esperida" <${process.env.EMAIL}>`,
-            to: extractedCSV[index].email,
-            //TODO Change email subject
-            subject: emailInfo.emailSubject,
-            //This is our whole email body with greetings
-            text: `Hello ${capitalizeEachWord(extractedCSV[index].name)},\n\n` + message,
-            attachments: [
-                {
-                    filename: `${capitalizeEachWord(extractedCSV[index].name)}.png`,
-                    path: await createCert(capitalizeEachWord(extractedCSV[index].name), 'email'),
-                },
-                //TODO if you want to add more attachment other than the certificate you can check this docs https://nodemailer.com/message/attachments/
-            ],
-        }).catch(console.error);
+        try {
+            await transporter.sendMail({
+                //TODO Change this to sender name
+                from: `"Nicolei Esperida" <${process.env.EMAIL}>`,
+                to: extractedCSV[index].email,
+                //TODO Change email subject
+                subject: emailInfo.emailSubject,
+                //This is our whole email body with greetings
+                text: `Hello ${capitalizeEachWord(extractedCSV[index].name)},\n\n` + message,
+                attachments: [
+                    {
+                        filename: `${capitalizeEachWord(extractedCSV[index].name)}.png`,
+                        path: await createCert(capitalizeEachWord(extractedCSV[index].name), 'email'),
+                    },
+                    //TODO if you want to add more attachment other than the certificate you can check this docs https://nodemailer.com/message/attachments/
+                ],
+            });
 
-        console.log(`Message sent to ${extractedCSV[index].email}`);
+            console.log(`Message sent to ${extractedCSV[index].email}`);
+        } catch (error) {
+            console.log(error);
+            console.log(`Didn't send email to ${extractedCSV[index].email}`);
+        }
     }
 }
 
