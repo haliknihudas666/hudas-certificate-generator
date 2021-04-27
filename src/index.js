@@ -100,6 +100,7 @@ async function sendEmail() {
                     filename: `${capitalizeEachWord(extractedCSV[index].name)}.png`,
                     path: await createCert(capitalizeEachWord(extractedCSV[index].name), 'email'),
                 },
+                //TODO if you want to add more attachment other than the certificate you can check this docs https://nodemailer.com/message/attachments/
             ],
         }).catch(console.error);
 
